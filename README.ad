@@ -1,0 +1,37 @@
+= What if: using non-thread-safe objects in ratpack handlers
+
+This project demonstrate the dangenousity of using class that is not designed
+to be thread-safe.
+
+== Requirement
+
+By default:
+
+* Unix-like system with Java installed.
+
+You may change default file path in the `*WriterService` classes and
+`test.sh` to try this application in another operating systems with JVM installed.
+
+== Run
+
+To start the server
+
+[source, bash]
+----
+./gradlew run
+----
+
+To send many requests to the server, run
+
+[source, bash]
+----
+./test.sh
+----
+
+The result will be
+
+----
+Files /var/tmp/sws and /var/tmp/ws differ
+Files /var/tmp/sws and /var/tmp/aws are identical
+Files /var/tmp/ws and /var/tmp/aws differ
+----
